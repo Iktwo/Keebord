@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.iktwo.keebord.model.Clip" />
+
+        <variable
+            name="index"
+            type="Integer" />
+
+        <variable
+            name="handler"
+            type="com.iktwo.keebord.model.ClipDelegateHandler" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="top"
+            android:background="@color/colorKeyboardDivider" />
+
+        <TextView
+            android:id="@+id/text_view_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:onClick="@{() -> handler.onClipSelected(model)}"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="@{model.content}"
+            android:textColor="@color/colorKeyboardText"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:onClick="@{() -> handler.onRemoveClipSelected(model, index)}"
+            android:text="D" />
+
+    </FrameLayout>
+</layout>

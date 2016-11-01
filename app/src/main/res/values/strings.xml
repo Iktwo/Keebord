@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Keebord</string>
+    <string name="simple_ime">Simple IME</string>
+    <string name="subtype_en_US">English (US)</string>
+    <string name="settings">Settings</string>
+    <string name="no_data">Copy some text and it will appear here.</string>
+</resources>
