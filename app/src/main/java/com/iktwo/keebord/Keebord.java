@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 
+import com.iktwo.binder.CursorDelegateAdapter;
 import com.iktwo.keebord.clipboard.ClipManagerService;
 import com.iktwo.keebord.clipboard.ClipboardMonitor;
 import com.iktwo.keebord.databinding.KeyboardBinding;
@@ -24,7 +25,6 @@ import com.iktwo.keebord.model.Clip;
 import com.iktwo.keebord.model.ClipDelegateHandler;
 import com.iktwo.keebord.model.DatabaseContract;
 import com.iktwo.keebord.ui.ListDividerItemDecoration;
-import com.iktwo.keebord.utils.CursorDelegateAdapter;
 
 public class Keebord extends InputMethodService implements KeyboardView.OnKeyboardActionListener,
         Loader.OnLoadCompleteListener<Cursor>,

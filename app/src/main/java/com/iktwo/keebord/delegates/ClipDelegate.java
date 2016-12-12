@@ -4,12 +4,12 @@ import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.iktwo.binder.BindingViewHolder;
+import com.iktwo.binder.ViewDelegate;
 import com.iktwo.keebord.R;
 import com.iktwo.keebord.databinding.DelegateClipBinding;
 import com.iktwo.keebord.model.Clip;
 import com.iktwo.keebord.model.ClipDelegateHandler;
-import com.iktwo.keebord.utils.BindingViewHolder;
-import com.iktwo.keebord.utils.ViewDelegate;
 
 public class ClipDelegate extends ViewDelegate<BindingViewHolder<DelegateClipBinding>> {
     private ClipDelegateHandler handler;
