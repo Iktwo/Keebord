@@ -7,6 +7,7 @@ import android.database.DatabaseUtils;
 import android.databinding.DataBindingUtil;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.KeyboardView;
+import android.support.annotation.NonNull;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 
 import com.iktwo.binder.CursorDelegateAdapter;
+import com.iktwo.binder.CursorTransformer;
 import com.iktwo.keebord.clipboard.ClipManagerService;
 import com.iktwo.keebord.clipboard.ClipboardMonitor;
 import com.iktwo.keebord.databinding.KeyboardBinding;
@@ -57,9 +59,14 @@ public class Keebord extends InputMethodService implements KeyboardView.OnKeyboa
 
         binding.buttonClose.setOnClickListener(v -> goToPreviousKeyboard());
 
-        adapter = new CursorDelegateAdapter(
-                c -> new Clip(c.getString(c.getColumnIndex(
-                        DatabaseContract.ClipboardColumns.CONTENT))));
+        adapter = new CursorDelegateAdapter(null, new CursorTransformer() {
+            @NonNull
+            @Override
+            public Object transform(Cursor cursor) {
+               return new Clip(cursor.getString(cursor.getColumnIndex(DatabaseContract.ClipboardColumns.CONTENT)));
+
+            }
+        });
 
         adapter.registerDelegate(new ClipDelegate(this));
 

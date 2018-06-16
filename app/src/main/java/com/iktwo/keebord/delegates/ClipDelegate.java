@@ -35,9 +35,9 @@ public class ClipDelegate extends ViewDelegate<BindingViewHolder<DelegateClipBin
 
     @Override
     public void onBindViewHolder(BindingViewHolder<DelegateClipBinding> viewHolder, Object item, int position) {
-        viewHolder.binding.setIndex(position);
-        viewHolder.binding.setModel((Clip) item);
-        viewHolder.binding.executePendingBindings();
+        viewHolder.getBinding().setIndex(position);
+        viewHolder.getBinding().setModel((Clip) item);
+        viewHolder.getBinding().executePendingBindings();
     }
 
     @Override
